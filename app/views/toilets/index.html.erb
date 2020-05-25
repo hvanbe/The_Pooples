@@ -1,0 +1,13 @@
+<div class="banner">
+  <h1>Choose your toilet</h1><br>
+</div>
+<div class="container">
+  <% @toilets.each do |toilet| %>
+    <div class="card">
+      <div class="card-description">
+        <h2><%= toilet.name %></h2>
+       </div>
+    </div>
+    <%= link_to "", toilet_path(toilet), class: 'card-link'  %>
+  <% end %>
+</div>
