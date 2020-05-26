@@ -1,29 +1,39 @@
 class ToiletsController < ApplicationController
+before_action :set_toilet, only:[:show]
 def index
     @toilets = Toilet.all
+    @toilets = policy_scope(Toilet).order(created_at: :desc)
   end
 
   def show
-    @toilet = Toilet.find(params[:id])
   end
 
   def new
-    @toilet = Toilet.new
+    @toilet = current_user.toilets.new
+    authorize @toilet
   end
 
   def create
+
+    @toilet = current_user.toilets.new(toilet_params)
     authorize @toilet
-    @toilet = Toilet.new(toilet_params)
     if @toilet.save
       redirect_to toilets_path(@toilet)
     else
       render 'new'
     end
+
   end
 
   private
 
   def toilet_params
     params.require(:toilet).permit(:name, :address, :description, :price)
+
+  end
+
+  def set_toilet
+    @toilet = Toilet.find(params[:id])
+    authorize @toilet
   end
 end
