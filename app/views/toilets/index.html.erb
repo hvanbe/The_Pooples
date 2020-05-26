@@ -10,4 +10,8 @@
     </div>
     <%= link_to "", toilet_path(toilet), class: 'card-link'  %>
   <% end %>
+
+  <% if policy(Toilet).create? %>
+  <%= link_to "New toilet", new_toilet_path %>
+<% end %>
 </div>
