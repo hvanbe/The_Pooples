@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-before_action :set_toilet, only:[:new, :show, :destroy]
+before_action :set_booking, only:[:show, :destroy]
 
 def index
     @bookings = Booking.where(user_id: current_user.id)
@@ -12,6 +12,7 @@ def index
 
   def new
     @booking = current_user.bookings.new
+    @toilet = Toilet.find(params[:toilet_id])
   end
 
   def create
@@ -37,6 +38,6 @@ def index
   end
 
   def set_booking
-    @toilet = Toilet.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 end
