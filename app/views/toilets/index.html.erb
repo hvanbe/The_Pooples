@@ -1,16 +1,18 @@
 <div class="container">
-
+  <% if policy(Toilet).create? %>
+    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to "Submit my toilets", new_toilet_path %></button>
+  <% end %>
   <h1>Choose your toilet</h1><br>
   <div class="card-deck">
     <% @toilets.each do |toilet| %>
 
-      <div class="card bg-dark text-dark">
+      <div class="card" style="width: 18rem;">
         <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
-        <div class="card-img-overlay">
+
           <h3 class="card-title"><%= toilet.name.upcase%></h3>
           <p class="card-text"><%= toilet.description %></p>
           <%= link_to "more info", toilet_path(toilet), class: 'card-link' %>
-        </div>
+
       </div>
 
       <% if policy(Toilet).destroy? %>
@@ -28,11 +30,8 @@
   </div>
   <br>
 
-  <% if policy(Toilet).create? %>
-    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to "New toilet", new_toilet_path %></button>
-  <% end %>
-</div>
 
+</div>
 
 
 

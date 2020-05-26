@@ -1,9 +1,15 @@
 <div class="container">
-  <h1><%= @toilet.name %></h1>
-<%= link_to 'Back to toilets', toilets_path  %>
-<br>
+<%= link_to 'Back to the listings', toilets_path%>
+  <div class="card" style="width: 40rem ";>
+    <img src="https://source.unsplash.com/xXc7zUKIhRw/800x450" alt="toilet">
+    <h5><%=@toilet.name.capitalize %></h5>
+    <ul class="list-group list-group-flush p-3">
+    <p><%=@toilet.description %></p>
+    <p><%=@toilet.price %>.-</p>
+    </ul>
+    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to 'Book now!', new_toilet_path %></button>
+  </div>
 
-  <h3><%= Address %></h3>
-  <h3><%= Description %></h3>
-  <h3><%= Price %></h3>
 </div>
+
+
