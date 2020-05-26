@@ -1,17 +1,18 @@
 <div class="container">
   <% if policy(Toilet).create? %>
-    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to "Submit my toilets", new_toilet_path %></button>
+    <button type="button" class="btn btn-outline-primary mt-3 mb-3"><%= link_to "Submit my toilets", new_toilet_path %></button>
   <% end %>
-  <h1>Choose your toilet</h1><br>
-  <div class="card-deck">
+  <div class="row row-cols-1 row-cols-md-2">
     <% @toilets.each do |toilet| %>
-
-      <div class="card" style="width: 18rem;">
-        <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
-
-          <h3 class="card-title"><%= toilet.name.upcase%></h3>
-          <p class="card-text"><%= toilet.description %></p>
-          <%= link_to "more info", toilet_path(toilet), class: 'card-link' %>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="https://source.unsplash.com/XatMS2NXIpo/800x450" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= toilet.name.upcase%></h5>
+            <p class="card-text"><%= toilet.description %></p>
+            <%= link_to "more info",toilet_path(toilet), class: 'card-link' %>
+          </div>
+        </div>
 
       </div>
 
@@ -26,12 +27,5 @@
           <i class="fas fa-edit"></i>
         <% end %>
       <% end %>
-    <% end %>
   </div>
-  <br>
-
-
 </div>
-
-
-

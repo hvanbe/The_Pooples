@@ -7,10 +7,15 @@
     <p><%=@toilet.description %></p>
     <p><%=@toilet.price %>.-</p>
     </ul>
-    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to 'Book now!', new_toilet_path %></button>
-</div>
 
-  <%= render "bookings/new", toilet: @toilet, booking: @booking %>
+    <div class="container">
+    <%= simple_form_for [@toilet, @booking] do |f| %>
+      <%= f.input :entry_time %>
+      <%= f.input :exit_time %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
 </div>
 
 

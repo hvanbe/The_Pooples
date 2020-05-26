@@ -6,6 +6,8 @@ def index
   end
 
   def show
+    authorize @toilet
+    @booking = Booking.new
   end
 
   def new
