@@ -6,12 +6,14 @@ def index
   end
 
   def show
-    authorize @toilet
   end
 
   def new
     @toilet = current_user.toilets.new
     authorize @toilet
+  end
+
+  def edit
   end
 
   def create
@@ -23,9 +25,6 @@ def index
     else
       render 'new'
     end
-  end
-
-  def edit
   end
 
   def update
