@@ -5,13 +5,28 @@
   <% @toilets.each do |toilet| %>
     <div class="card">
       <div class="card-description">
-        <h2><%= toilet.name %></h2>
+        <%= link_to toilet_path(toilet) do %>
+          <h2><%= toilet.name %></h2>
+        <% end %>
        </div>
     </div>
-    <%= link_to "", toilet_path(toilet), class: 'card-link'  %>
+
+    <% if policy(Toilet).destroy? %>
+      <%= link_to toilet_path(toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash destroy_dose"></i>
+      <% end %>
+    <% end %>
+
+    <% if policy(Toilet).destroy? %>
+      <%= link_to edit_toilet_path(toilet), method: :update do %>
+         <i class="fas fa-edit"></i>
+        <% end %>
+       <% end %>
   <% end %>
 
+  <br>
   <% if policy(Toilet).create? %>
   <%= link_to "New toilet", new_toilet_path %>
 <% end %>
+
 </div>
