@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-before_action :set_toilet, only:[:update, :show, :destroy]
+before_action :set_toilet, only:[:new, :show, :destroy]
 
 def index
     @bookings = Booking.where(user_id: current_user.id)
@@ -12,27 +12,17 @@ def index
 
   def new
     @booking = current_user.bookings.new
-    authorize @booking
   end
 
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @booking = Booking.new(booking_params)
-    authorize @booking
     @booking.user = current_user
     if @booking.save
       redirect_to bookings_path(@booking)
     else
       redirect_to toilet_path(@toilet)
     end
-  end
-
-  def edit
-  end
-
-  def update
-    @booking.save!
-    redirect_to booking_path(@booking)
   end
 
   def destroy
@@ -47,9 +37,6 @@ def index
   end
 
   def set_booking
-    @booking = Booking.find(params[:id])
-    authorize @booking
+    @toilet = Toilet.find(params[:id])
   end
-end
-
 end

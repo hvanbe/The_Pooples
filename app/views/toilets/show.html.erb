@@ -7,10 +7,8 @@
     <p><%=@toilet.description %></p>
     <p><%=@toilet.price %>.-</p>
     </ul>
-    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to 'Book now!', new_toilet_path %></button>
-</div>
-
-  <%= render "bookings/new", toilet: @toilet, booking: @booking %>
+    <button type="button" class="btn btn-outline-primary mt-3"><%= link_to 'Book now!', new_toilet_booking_path(@toilet) %></button>
+  </div>
 </div>
 
 
