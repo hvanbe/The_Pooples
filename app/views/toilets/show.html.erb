@@ -1,9 +1,14 @@
 <div class="container">
-  <h1><%= @toilet.name %></h1>
-<%= link_to 'Back to toilets', toilets_path  %>
-<br>
+  <div class="toilet-info">
+    <h1><%= @toilet.name %></h1>
+    <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
+    <br>
 
-  <h3><%= Address %></h3>
-  <h3><%= Description %></h3>
-  <h3><%= Price %></h3>
+      <h2><%= Address %></h2>
+      <h2><%= Description %></h2>
+      <h2><%= Price %></h2>
+  </div>
+
+  <%= render "bookings/new", toilet: @toilet, booking: @booking %>
+  <%= link_to 'Back to toilets', toilets_path  %>
 </div>

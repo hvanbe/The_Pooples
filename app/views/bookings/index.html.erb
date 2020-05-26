@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>My toilet bookings</h2>
+
+  <div class="card-deck">
+     <% @bookings.each do |booking| <%>
+     <div class="card bg-dark text-dark">
+        <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
+        <div class="card-img-overlay">
+          <h3 class="card-title">toilet.name</h3>
+          <p class="card-text">From<%= booking.toilet.entry_time %></p>
+          <p class="card-text">To<%= booking.toilet.exit_time %></p>
+          <p class="card-text">Total price<%= booking.toilet.price %></p>
+          <%= link_to "+ more info", toilet_path(toilet), class: 'card-link' %>
+      <% end %>
+      </div>
+</div>
