@@ -15,6 +15,9 @@ def index
     authorize @toilet
   end
 
+  def edit
+  end
+
   def create
 
     @toilet = current_user.toilets.new(toilet_params)
@@ -24,9 +27,6 @@ def index
     else
       render 'new'
     end
-  end
-
-  def edit
   end
 
   def update

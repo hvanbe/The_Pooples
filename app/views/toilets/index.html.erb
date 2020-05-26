@@ -15,6 +15,17 @@
         </div>
 
       </div>
+
+      <% if policy(toilet).destroy? %>
+        <%= link_to toilet_path(toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash destroy_dose"></i>
+        <% end %>
+      <% end %>
+
+      <% if policy(toilet).update? %>
+        <%= link_to edit_toilet_path(toilet), method: :update do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
       <% end %>
   </div>
 </div>
