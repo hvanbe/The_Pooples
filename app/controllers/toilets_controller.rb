@@ -12,8 +12,8 @@ def index
   end
 
   def create
+    authorize @toilet
     @toilet = Toilet.new(toilet_params)
-    raise
     if @toilet.save
       redirect_to toilets_path(@toilet)
     else
