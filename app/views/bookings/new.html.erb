@@ -1,10 +1,10 @@
-<div class="booking-card">
-  <h1>Book your toilet now!</h1><br>
-    <%= simple_form_for [toilet, booking] do |f| %>
-      <%= f.label :entry_time %>
-      <%= f.timestamp :entry_time, as: :date_time_picker %>
-      <%= f.label :exit_time %>
-      <%= f.timestamp :exit_time, as: :date_time_picker %>
-      <%= f.button :submit %>
-    <% end %>
+<div class="container">
+  <%= form_for(@toilet, @booking) do |f| %>
+    <%= f.label :entry_time %>
+    <%= f.timestamp :entry_time %>
+    <%= f.label :exit_time %>
+    <%= f.timestamp :exit_time %>
+    <%= f.submit %>
+  <% end %>
+
 </div>
