@@ -21,7 +21,7 @@
         <% end %>
       <% end %>
 
-      <% if policy(Toilet).destroy? %>
+      <% if policy(Toilet).update? %>
         <%= link_to edit_toilet_path(toilet), method: :update do %>
           <i class="fas fa-edit"></i>
         <% end %>
