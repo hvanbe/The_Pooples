@@ -6,6 +6,7 @@ def index
   end
 
   def show
+    authorize @toilet
   end
 
   def new
