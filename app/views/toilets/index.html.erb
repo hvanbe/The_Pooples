@@ -1,8 +1,15 @@
 <div class="container">
+
+
   <% if policy(Toilet).create? %>
     <button type="button" class="btn btn-outline-primary mt-3 mb-3"><%= link_to "Submit my toilets", new_toilet_path %></button>
   <% end %>
-  <div class="row row-cols-1 row-cols-md-2">
+  <div id="map"
+      style="width: 100%; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 mt-3">
     <% @toilets.each do |toilet| %>
       <div class="col mb-4">
         <div class="card">
@@ -10,12 +17,17 @@
           <div class="card-body">
             <h5 class="card-title"><%= toilet.name.upcase%></h5>
             <p class="card-text"><%= toilet.description %></p>
-            <%= link_to "more info",toilet_path(toilet), class: 'card-link' %>
+            <%= link_to toilet_path(toilet), class: 'card-link' do %>
+              <% if toilet.user == current_user %>
+                See my reservations
+              <% else %>
+                Book now!
+              <% end %>
+            <% end %>
           </div>
         </div>
-
       </div>
-
     <% end %>
   </div>
 </div>
+
