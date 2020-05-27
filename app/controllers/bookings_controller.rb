@@ -16,7 +16,7 @@ def create
     end
   end
 
-def index
+  def index
     @bookings = Booking.where(user_id: current_user.id)
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
