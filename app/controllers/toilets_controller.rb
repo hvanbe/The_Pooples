@@ -19,9 +19,10 @@ before_action :set_toilet, only:[:show, :destroy, :edit, :update]
   end
 
   def create
-    @toilet = current_user.toilets.new(toilet_params)
+    @toilet = Toilet.new(toilet_params)
+    @toilet.user = current_user
     authorize @toilet
-    if @toilet.save
+    if @toilet.save!
       redirect_to toilet_path(@toilet)
     else
       render 'new'
@@ -46,8 +47,7 @@ before_action :set_toilet, only:[:show, :destroy, :edit, :update]
   private
 
   def toilet_params
-    params.require(:toilet).permit(:name, :address, :description, :price)
-
+    params.require(:toilet).permit(:name, :address, :description, :price, :photo)
   end
 
   def set_toilet
