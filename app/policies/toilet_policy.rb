@@ -14,10 +14,10 @@ class ToiletPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user  
+    record.user == user
   end
 
   def destroy?
-    record.user == user  
+    record.user == user
   end
 end

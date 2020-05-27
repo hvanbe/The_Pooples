@@ -1,8 +1,8 @@
 class ToiletsController < ApplicationController
 before_action :set_toilet, only:[:show, :destroy, :edit, :update]
-def index
-    @toilets = Toilet.all
-    @toilets = policy_scope(Toilet).order(created_at: :desc)
+  def index
+    @toilets = Toilet.all.order(created_at: :desc)
+    #@toilets = policy_scope(Toilet)
   end
 
   def show
@@ -39,6 +39,11 @@ def index
     redirect_to toilets_path
   end
 
+  def manage
+    @toilet.update(toilet_params)
+    redirect_to toilets_path(@toilet)
+  end
+
   private
 
   def toilet_params
@@ -50,4 +55,5 @@ def index
     @toilet = Toilet.find(params[:id])
     authorize @toilet
   end
+
 end
