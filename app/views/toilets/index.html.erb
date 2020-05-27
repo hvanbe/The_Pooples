@@ -10,12 +10,17 @@
           <div class="card-body">
             <h5 class="card-title"><%= toilet.name.upcase%></h5>
             <p class="card-text"><%= toilet.description %></p>
-            <%= link_to "more info",toilet_path(toilet), class: 'card-link' %>
+            <%= link_to toilet_path(toilet), class: 'card-link' do %>
+              <% if toilet.user == current_user %>
+                See my reservations
+              <% else %>
+                Book now!
+              <% end %>
+            <% end %>
           </div>
         </div>
-
       </div>
-
     <% end %>
   </div>
 </div>
+

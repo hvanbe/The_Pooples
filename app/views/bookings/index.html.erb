@@ -1,16 +1,21 @@
 <div class="container">
-  <h2>My toilet bookings</h2>
+  <div class="row row-cols-1 row-cols-md-1">
+    <h2>My toilet bookings</h2> <br>
+    <%= link_to 'Back to the listings', toilets_path%>
 
-  <div class="card-deck">
-     <% @bookings.each do |booking| <%>
-     <div class="card bg-dark text-dark">
-        <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
-        <div class="card-img-overlay">
-          <h3 class="card-title">toilet.name</h3>
-          <p class="card-text">From<%= booking.toilet.entry_time %></p>
-          <p class="card-text">To<%= booking.toilet.exit_time %></p>
-          <p class="card-text">Total price<%= booking.toilet.price %></p>
-          <%= link_to "+ more info", toilet_path(toilet), class: 'card-link' %>
+      <% @bookings.each do |booking| %>
+        <div class="col mb-4">
+          <div class="card">
+
+          <h3 class="card-title"><%= booking.toilet.name %></h3>
+            <p class="card-text"><%= booking.toilet.address %></p>
+            <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
+            <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
+            <p class="card-text"> <strong>From</strong><br> <%= booking.entry_time %></p>
+            <p class="card-text"> <strong>To</strong><br> <%= booking.exit_time %></p>
+            <p class="card-text"> <strong>Total price (CHF/min)</strong><br> <%= booking.toilet.price %></p>
+        </div>
+          </div>
       <% end %>
-      </div>
+  </div>
 </div>
