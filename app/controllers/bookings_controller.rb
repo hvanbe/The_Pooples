@@ -7,9 +7,8 @@ def create
     @booking = Booking.new(booking_params)
     @booking.toilet = @toilet
     @booking.user = current_user
-    @booking.status = "Pending host validation"
+    @booking.status = "Pending host validation..."
     authorize @booking
-    raise
     if @booking.save
       redirect_to booking_path(@booking)
     else

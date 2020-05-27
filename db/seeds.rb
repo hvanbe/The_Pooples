@@ -9,31 +9,28 @@ require 'faker'
 
 puts 'Creating users...'
 LBowman = User.new(
-  first_name: "Lennard", 
+  first_name: "Lennard",
   last_name: "Bowman",
   email: "LennardBowman@gmail.com",
   password: "Lennard321",
-  host: false,
   phone_number: "0784369182"
   )
   LBowman.save!
 
 ABuchler = User.new(
-  first_name: "Alexandre", 
+  first_name: "Alexandre",
   last_name: "Buchler",
   email: "alexandrebuchler@hotmail.com",
   password: "Abuchler6791",
-  host: false,
   phone_number: "0792004881"
   )
   ABuchler.save!
 
   BLarsen = User.new(
-  first_name: "Benjamin", 
+  first_name: "Benjamin",
   last_name: "Larsen",
   email: "Benjamin@Larsen.ch",
   password: "kagenas9213145k",
-  host: false,
   phone_number: "0794110043"
   )
   BLarsen.save!
@@ -41,11 +38,10 @@ ABuchler = User.new(
 puts "Faker users"
 10.times do
   user = User.new(
-    first_name: Faker::Name.first_name, 
+    first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
-    host: Faker::Boolean.boolean(true_ratio: 0.2),
     phone_number: Faker::PhoneNumber.cell_phone
   )
   user.save!
