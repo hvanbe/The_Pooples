@@ -1,12 +1,18 @@
 <div class="container">
-  <%= link_to 'Back to my bookings', bookings_path(@booking.toilet)%>
-  <div class="alert alert-success" role="alert">
+
     <% if policy(Booking).create? %>
-      <h2 class="alert-heading"><%= @booking.status %></h2>
-        <p>Thank you for your booking. We will confirm your reservation as soon as possible. </p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+      <div class="card">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= @booking.status %></h5>
+          <p class="card-text">Thank you for your booking. We will confirm your reservation as soon as possible.</p>
+          <%= link_to 'Back to my bookings', bookings_path(@booking.toilet)%>
+        </div>
+      </div>
+
     <% end %>
-  </div>
+
 </div>
