@@ -1,0 +1,5 @@
+<div class="container">
+  <% if policy(Booking).create? %>
+    <h2><%= @booking.status %></h2>
+  <% end %>
+</div>

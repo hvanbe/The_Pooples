@@ -19,11 +19,11 @@ def index
   end
 
   def create
-
     @toilet = current_user.toilets.new(toilet_params)
+    @toilet.user.host = true
     authorize @toilet
     if @toilet.save
-      redirect_to toilets_path(@toilet)
+      redirect_to booking_path(@toilet)
     else
       render 'new'
     end
