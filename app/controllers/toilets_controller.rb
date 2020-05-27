@@ -20,10 +20,9 @@ before_action :set_toilet, only:[:show, :destroy, :edit, :update]
 
   def create
     @toilet = current_user.toilets.new(toilet_params)
-    @toilet.user.host = true
     authorize @toilet
     if @toilet.save
-      redirect_to booking_path(@toilet)
+      redirect_to toilet_path(@toilet)
     else
       render 'new'
     end

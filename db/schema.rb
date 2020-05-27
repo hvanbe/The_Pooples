@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_093702) do
+ActiveRecord::Schema.define(version: 2020_05_27_095109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,9 @@ ActiveRecord::Schema.define(version: 2020_05_27_093702) do
     t.datetime "exit_time"
     t.bigint "user_id", null: false
     t.bigint "toilet_id", null: false
-    t.bigint "host_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
-    t.index ["host_id"], name: "index_bookings_on_host_id"
     t.index ["toilet_id"], name: "index_bookings_on_toilet_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_093702) do
     t.string "last_name"
     t.string "email"
     t.string "password"
-    t.boolean "host"
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,6 +56,5 @@ ActiveRecord::Schema.define(version: 2020_05_27_093702) do
 
   add_foreign_key "bookings", "toilets"
   add_foreign_key "bookings", "users"
-  add_foreign_key "bookings", "users", column: "host_id"
   add_foreign_key "toilets", "users"
 end
