@@ -1,8 +1,15 @@
 class ToiletsController < ApplicationController
 before_action :set_toilet, only:[:show, :destroy, :edit, :update]
   def index
-    @toilets = Toilet.all.order(created_at: :desc)
-    #@toilets = policy_scope(Toilet)
+    @toilets = Toilet.geocoded
+
+    @markers = @toilets.map do |toilet|
+      {
+        lat: toilet.latitude,
+        lng: toilet.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { toilet: toilet })
+      }
+    end
   end
 
   def show
