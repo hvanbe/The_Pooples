@@ -15,16 +15,16 @@
         </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-        <%= link_to "See listings", toilets_path, class: "nav-link" %>
+        <%= link_to "All listings", toilets_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Manage", "#", class: "nav-link" %>
+          <%= link_to "My toilets", my_toilets_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://image.flaticon.com/icons/svg/2937/2937802.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <!--<%= link_to "My toilets", my_toilets_path, class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %> -->
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show, :destroy, :update]
+  resources :my_toilets, only: [:index]
 end
