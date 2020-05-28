@@ -9,10 +9,10 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="row row-cols-1 row-cols-md-2 mt-3">
-    <% @toilets.each do |toilet| %>
+    <% @toilets.order('created_at DESC').each do |toilet| %>
       <div class="col mb-4">
         <div class="card">
-          <img src="https://source.unsplash.com/XatMS2NXIpo/800x450" class="card-img-top" alt="...">
+          <img src="<%= cl_image_path(toilet.photo.key,:width => 110, :height => 100,:crop => :fill) %>">
           <div class="card-body">
             <h5 class="card-title"><%= toilet.name.upcase%></h5>
             <p class="card-text"><%= toilet.description %></p>
