@@ -2,6 +2,16 @@ class BookingsController < ApplicationController
 
 before_action :set_booking, only:[:show, :destroy, :edit, :update]
 
+def index
+  @bookings = policy_scope(Booking).order(created_at: :desc)
+  @my_toilets_bookings = current_user.my_toilets_bookings
+end
+
+def show
+  @toilet = @booking.toilet
+  authorize @booking
+end
+
 def create
     @toilet = Toilet.find(params[:toilet_id])
     @booking = Booking.new(booking_params)
@@ -25,18 +35,6 @@ def create
     redirect_to booking_path(@booking)
   end
 
-
-  def index
-    @bookings = Booking.where(user_id: current_user.id)
-    @bookings = policy_scope(Booking).order(created_at: :desc)
-  end
-
-  def show
-    @toilet = @booking.toilet
-    authorize @booking
-  end
-
-
   def new
     @booking = current_user.bookings.new
     @toilet = Toilet.find(params[:toilet_id])
@@ -47,7 +45,7 @@ def create
     @booking.destroy
     redirect_to root_path
   end
-
+  
   private
 
   def booking_params
