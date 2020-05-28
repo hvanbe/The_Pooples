@@ -2,16 +2,13 @@ class ToiletsController < ApplicationController
 before_action :set_toilet, only:[:show, :destroy, :edit, :update]
 
   def index
+    if params[:query].present?
+      @toilets = Toilet.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @toilets = Toilet.all
+    end
 
-  if params[:query].present?
-        @toilets = Toilet.where("address ILIKE ?", "%#{params[:query]}%")
-      else
-        @toilets = Toilet.all
-      end
-
-    @geo_toilets = @toilets.geocoded
-
-    @markers = @geo_toilets.map do |toilet|
+    @markers = @toilets.geocoded.map do |toilet|
       {
         lat: toilet.latitude,
         lng: toilet.longitude,
