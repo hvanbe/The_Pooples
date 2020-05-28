@@ -1,10 +1,10 @@
 <div class="container-fluid">
-
   <%= link_to 'Back to the listings', toilets_path%>
-
   <% if @toilet.user == current_user %>
+    <% if policy(@toilet).create? %>
+      <h1>Thank you for sharing your toilets !</h1>
+    <% end %>
     <%= link_to 'My toilets', my_toilets_path%>
-
     <div class="card">
       <% @toilet.bookings.each do |booking| %>
         <h3 class="card-title"><%= booking.toilet.name %></h3>
@@ -18,30 +18,19 @@
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path(@toilet.photo.key,:width=>200, :height=>200 ,:gravity=>"auto") %>);" >
     <div class="container">
     <h1><%=@toilet.name.capitalize %></h1>
-      <% if policy(@toilet).destroy? %>
-        <%= link_to toilet_path(@toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fa fa-trash destroy_dose"></i>
-        <% end %>
-      <% end %>
-
-      <% if policy(@toilet).update? %>
-        <%= link_to edit_toilet_path(@toilet), method: :update do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
-      <% end %>
-
       <p><%=@toilet.description %></p>
       <p><%=@toilet.price*15%>.- for 15mn</p>
+      <div class="card p-3 mt-3 mb-3">
+        <%= simple_form_for [@toilet, @booking] do |f| %>
+          <%= f.input :entry_time, as: :string, required: true, input_html: {class: "datepicker"} %>
+          <%= f.input :exit_time, as: :string, required: true, input_html: {class: "datepicker"} %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+  </div>
       <% end %>
     </div>
   </div>
-  <div class="card p-3 mt-3 mb-3">
-    <%= simple_form_for [@toilet, @booking] do |f| %>
-    <%= f.input :entry_time, as: :string, required: true, input_html: {class: "datepicker"} %>
-    <%= f.input :exit_time, as: :string, required: true, input_html: {class: "datepicker"} %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
-  </div>
+
 </div>
 
 
