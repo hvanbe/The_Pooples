@@ -12,7 +12,7 @@
     <% @toilets.order('created_at DESC').each do |toilet| %>
       <div class="col mb-4">
         <div class="card">
-          <img src="<%= cl_image_path(toilet.photo.key,:width => 110, :height => 100,:crop => :fill) %>">
+          <img src="<%= cl_image_path(toilet.photo.key,:width=>400, :height=>260 , :crop=>"fill",:gravity=>"auto") %>">
           <div class="card-body">
             <h5 class="card-title"><%= toilet.name.upcase%></h5>
 

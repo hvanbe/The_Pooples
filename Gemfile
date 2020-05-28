@@ -36,6 +36,7 @@ gem 'pundit'
 
 gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
+gem 'flatpickr', '~> 4.6', '>= 4.6.3.1'
 
 
 group :development, :test do
