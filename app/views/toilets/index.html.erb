@@ -15,6 +15,19 @@
           <img src="<%= cl_image_path(toilet.photo.key,:width => 110, :height => 100,:crop => :fill) %>">
           <div class="card-body">
             <h5 class="card-title"><%= toilet.name.upcase%></h5>
+
+            <% if policy(toilet).destroy? %>
+              <%= link_to toilet_path(toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash destroy_dose"></i>
+              <% end %>
+            <% end %>
+
+              <% if policy(toilet).update? %>
+                  <%= link_to edit_toilet_path(toilet) do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+              <% end %>
+
             <p class="card-text"><%= toilet.description %></p>
             <%= link_to toilet_path(toilet), class: 'card-link' do %>
               <% if toilet.user == current_user %>
