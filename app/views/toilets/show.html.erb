@@ -1,4 +1,5 @@
 <div class="container">
+
   <%= link_to 'Back to the listings', toilets_path%>
 
   <% if @toilet.user == current_user %>
@@ -16,7 +17,7 @@
   <% else %>
 
   <div class="card" style="width: 40rem ";>
-    <%= cl_image_tag(@toilet.photo.key, width: 400, height: 300, crop: :fill) %>
+  <%= cl_image_tag(@toilet.photo.key, width: 400, height: 300, crop: :fill) %>
     <h5><%=@toilet.name.capitalize %></h5>
       <% if policy(@toilet).destroy? %>
         <%= link_to toilet_path(@toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -40,6 +41,6 @@
         <% end %>
       <% end %>
   </div>
-
+<% console %>
 </div>
 
