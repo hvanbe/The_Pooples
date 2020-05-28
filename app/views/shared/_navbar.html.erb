@@ -19,6 +19,9 @@
         %>
         <% end %>
       </li>
+      <li class="nav-item">
+        <%= link_to "All toilets", toilets_path, class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "My toilets", my_toilets_path, class: "nav-link" %>
