@@ -19,17 +19,7 @@
   <div class="card" style="width: 40rem ";>
 
     <h5><%=@toilet.name.capitalize %></h5>
-      <% if policy(@toilet).destroy? %>
-        <%= link_to toilet_path(@toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fa fa-trash destroy_dose"></i>
-        <% end %>
-      <% end %>
 
-      <% if policy(@toilet).update? %>
-        <%= link_to edit_toilet_path(@toilet), method: :update do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
-      <% end %>
     <ul class="list-group list-group-flush p-3">
       <p><%=@toilet.description %></p>
       <p><%=@toilet.price %>.-</p>
