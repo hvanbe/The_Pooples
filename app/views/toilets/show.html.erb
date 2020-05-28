@@ -13,12 +13,10 @@
           <p> <strong>Total price (CHF/min)</strong><br> <%= booking.toilet.price %></p>
       <% end %>
     </div>
-
   <% else %>
-
-  <div class="card" >
-
-    <h5><%=@toilet.name.capitalize %></h5>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path(@toilet.photo.key,:width=>200, :height=>200 ,:gravity=>"auto") %>);" >
+    <div class="container">
+    <h1><%=@toilet.name.capitalize %></h1>
       <% if policy(@toilet).destroy? %>
         <%= link_to toilet_path(@toilet), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="fa fa-trash destroy_dose"></i>
@@ -30,17 +28,19 @@
           <i class="fas fa-edit"></i>
         <% end %>
       <% end %>
-    <ul class="list-group list-group-flush p-3">
-      <img src="<%= cl_image_path(@toilet.photo.key,:width=>700, :height=>400 ,:gravity=>"auto") %>">
       <p><%=@toilet.description %></p>
-      <p><%=@toilet.price %>.-</p>
-    </ul>
-        <%= simple_form_for [@toilet, @booking] do |f| %>
-          <%= f.input :entry_time, as: :string, required: true, input_html: {class: "datepicker"} %>
-          <%= f.input :exit_time, as: :string, required: true, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+      <p><%=@toilet.price*15%>.- for 15mn</p>
       <% end %>
+    </div>
+  </div>
+  <div class="card p-3 mt-3">
+    <%= simple_form_for [@toilet, @booking] do |f| %>
+    <%= f.input :entry_time, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :exit_time, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
+
+
 
