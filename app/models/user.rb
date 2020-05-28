@@ -7,4 +7,11 @@ class User < ApplicationRecord
 
   has_many :toilets, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  
+  def my_toilets_bookings
+    bookings = self.toilets.map do |toilet|
+      toilet.bookings
+    end
+    bookings.flatten
+  end
 end
