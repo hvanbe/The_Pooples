@@ -1,18 +1,32 @@
 <div class="container">
-
-    <% if policy(Booking).create? %>
-
+  <% if policy(Booking).create? & @booking.status == "pending"%>
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title"><%= @booking.status %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Thank you for your booking. We will confirm your reservation as soon as possible.</p>
+        <%= link_to 'Back to my bookings', bookings_path(@booking.toilet)%>
+      </div>
+    </div>
+  <% end %>
+  <% if @booking.price == "unpaid" %>
       <div class="card">
         <div class="card-header">
-
+          <h5 class="card-title"><%= @booking.status %></h5>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><%= @booking.status %></h5>
-          <p class="card-text">Thank you for your booking. We will confirm your reservation as soon as possible.</p>
-          <%= link_to 'Back to my bookings', bookings_path(@booking.toilet)%>
+          <p class="card-text">You have <%= @booking.status %> the booking, <%= link_to "#{@booking.toilet.name}", bookings_path(@booking)%></p>
         </div>
       </div>
-
-    <% end %>
-
+  <% elsif @booking.price == "paid" %>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Confirmation of payment</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Thank you for your payment. The booking of the <strong><%= @booking.toilet.name %></strong> is confirmed.</p>
+        </div>
+      </div>
+  <% end %>
 </div>

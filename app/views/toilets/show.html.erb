@@ -1,16 +1,14 @@
 <div class="container-fluid">
-  <%= link_to 'Back to the listings', toilets_path%>
   <% if @toilet.user == current_user %>
     <% if policy(@toilet).create? %>
       <h1>Thank you for sharing your toilets !</h1>
     <% end %>
-    <%= link_to 'My toilets', my_toilets_path%>
     <div class="card">
       <% @toilet.bookings.each do |booking| %>
         <h3 class="card-title"><%= booking.toilet.name %></h3>
           <p> <strong>From</strong><br> <%= booking.entry_time %></p>
           <p> <strong>To</strong><br> <%= booking.exit_time %></p>
-          <p> <strong>Total price (CHF/min)</strong><br> <%= booking.toilet.price %></p>
+          <p> <strong>Total price (cents/minute)</strong><br> <%= booking.toilet.price %></p>
       <% end %>
     </div>
   <% else %>
