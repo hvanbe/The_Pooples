@@ -9,7 +9,7 @@ before_action :set_toilet, only:[:show, :destroy, :edit, :update]
         @toilets = Toilet.all
       end
 
-    @geo_toilets = Toilet.geocoded
+    @geo_toilets = @toilets.geocoded
 
     @markers = @geo_toilets.map do |toilet|
       {
