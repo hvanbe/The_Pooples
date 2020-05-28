@@ -1,32 +1,85 @@
 <div class="container">
-  <div class="row row-cols-1 row-cols-md-1">
-    <h2>My bookings</h2>
-    <% @bookings.each do |booking| %>
-      <div class="col mb-4">
-        <div class="card">
-          <h3 class="card-title"><%= booking.toilet.name %></h3>
-          <p class="card-text"><%= booking.toilet.address %></p>
-          <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
-          <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
-          <p class="card-text"> <strong>From</strong><br> <%= booking.entry_time %></p>
-          <p class="card-text"> <strong>To</strong><br> <%= booking.exit_time %></p>
-          <p class="card-text"> <strong>Booked by</strong><br> <%= booking.user.first_name %></p>
-        </div>
+    <div class="row">
+      <div class="col">
+        <h2>My bookings</h2>
+        <% @bookings.each do |booking| %>
+
+          <div class="card">
+            <h3 class="card-title"><%= booking.toilet.name %></h3>
+            <p class="card-text"><%= booking.toilet.address %></p>
+            <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
+
+            <% if booking.status == "pending" %>
+            <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
+              <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
+
+            <% elsif booking.status == "approved" %>
+              <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
+              <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading">Your booking has been approved</h4>
+                <p>Thank you for your Booking! <%= booking.toilet.user.first_name %> looks forward to welcoming you soon!</p>
+              </div>
+
+            <% elsif booking.status == "rejected" %>
+              <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
+              <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading">Your booking was rejected</h4>
+                <p>Thank you for your booking <%= booking.user.first_name %>! Unfortunately, <%= booking.toilet.user.first_name %> will not be able to accomodate your demand this time...</p>
+              </div>
+            <% end %>
+
+            <p class="card-text"> <strong>From</strong><br> <%= booking.entry_time %></p>
+            <p class="card-text"> <strong>To</strong><br> <%= booking.exit_time %></p>
+            <p class="card-text"> <strong>Toilet host</strong><br> <%= booking.toilet.user.first_name %></p>
+
+            <% if booking.status == "approved" %>
+              <% if booking.price == "unpaid" %>
+                <p class="font-italic">To confirm your booking, please proceed to the payment</p>
+                <%= link_to "Pay now #{booking.toilet.price} cents/minute", booking_path(booking, "booking[price]" => "paid"), method: :patch, class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <hr>
-    <h2>My toilets</h2>
-    <% @my_toilets_bookings.each do |booking| %>
-      <div class="col mb-4">
-        <div class="card">
-          <h3 class="card-title"><%= booking.toilet.name %></h3>
-          <p class="card-text"><%= booking.toilet.address %></p>
-          <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
-          <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
-          <p class="card-text"> <strong>From</strong><br> <%= booking.entry_time %></p>
-          <p class="card-text"> <strong>To</strong><br> <%= booking.exit_time %></p>
-          <p class="card-text"> <strong>Booked by</strong><br> <%= booking.user.first_name %></p>
-        </div>
+      <hr>
+
+      <div class="col">
+        <h2>My toilets</h2>
+        <% @my_toilets_bookings.each do |booking| %>
+
+          <div class="card">
+            <h3 class="card-title"><%= booking.toilet.name %></h3>
+            <p class="card-text"><%= booking.toilet.address %></p>
+            <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
+            <p class="card-text"><strong>Status</strong><br> <%= booking.status %></p>
+            <p class="card-text"> <strong>From</strong><br> <%= booking.entry_time %></p>
+            <p class="card-text"> <strong>To</strong><br> <%= booking.exit_time %></p>
+            <p class="card-text">
+              <strong>Booked by</strong><br> <%= booking.user.first_name %> <br>
+
+              <% if booking.status == "pending" %>
+                <%= link_to "Accept", booking_path(booking, "booking[status]" => "approved"), method: :patch, class: "btn btn-success" %>
+                <%= link_to "Refuse", booking_path(booking, "booking[status]" => "rejected"), method: :patch, class: "btn btn-danger" %>
+              <% end %>
+            </p>
+
+        <% if booking.status == "approved" %>
+          <p class="card-text">
+            <strong>Payment status</strong><br>
+            <% if booking.price == "paid" %>
+              The Booking has been <%= booking.price %>
+            <% else%>
+              Waiting for payment
+            <% end %>
+          </p>
+        <% end %>
       </div>
     <% end %>
   </div>

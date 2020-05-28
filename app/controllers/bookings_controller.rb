@@ -1,23 +1,22 @@
 class BookingsController < ApplicationController
 
-before_action :set_booking, only:[:show, :destroy, :edit, :update]
+  before_action :set_booking, only:[:show, :destroy, :edit, :update]
 
-def index
-  @bookings = policy_scope(Booking).order(created_at: :desc)
-  @my_toilets_bookings = current_user.my_toilets_bookings
-end
+  def index
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @my_toilets_bookings = current_user.my_toilets_bookings
+  end
 
-def show
-  @toilet = @booking.toilet
-  authorize @booking
-end
+  def show
+    @toilet = @booking.toilet
+    authorize @booking
+  end
 
-def create
+  def create
     @toilet = Toilet.find(params[:toilet_id])
     @booking = Booking.new(booking_params)
     @booking.toilet = @toilet
     @booking.user = current_user
-    @booking.status = "Pending host validation..."
     authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
@@ -30,6 +29,7 @@ def create
   end
 
   def update
+    authorize @booking
     @booking.update(booking_params)
     @booking.save
     redirect_to booking_path(@booking)
@@ -45,11 +45,11 @@ def create
     @booking.destroy
     redirect_to root_path
   end
-  
+
   private
 
   def booking_params
-    params.require(:booking).permit(:entry_time, :exit_time, :status)
+    params.require(:booking).permit(:entry_time, :exit_time, :status, :price)
   end
 
   def set_booking
