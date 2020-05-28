@@ -35,7 +35,7 @@
       <% end %>
     </div>
   </div>
-  <div class="card p-3 mt-3">
+  <div class="card p-3 mt-3 mb-3">
     <%= simple_form_for [@toilet, @booking] do |f| %>
     <%= f.input :entry_time, as: :string, required: true, input_html: {class: "datepicker"} %>
     <%= f.input :exit_time, as: :string, required: true, input_html: {class: "datepicker"} %>
