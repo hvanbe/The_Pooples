@@ -27,14 +27,14 @@ helene = User.create!(
 )
 
 blaise = User.create!(
-  first_name: "blaise",
+  first_name: "Blaise",
   last_name:  "Popote",
   email:      "blaise@gmail.com",
   password:   "123456",
 )
 
 alexb = User.create!(
-  first_name: "alexb",
+  first_name: "Alexb",
   last_name:  "Buchler",
   email:      "alexb@gmail.com",
   password:   "123456",
@@ -48,7 +48,8 @@ toilet = Toilet.create!(
   price: 15,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590742000/toilets/21480953106_56d4b3bd2a_c_hczfmz.jpg')
 toilet.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
@@ -210,7 +211,7 @@ toilet16 = Toilet.create!(
   user: helene
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590742000/toilets/5368299567_d2d7db4772_c_yf4jvm.jpg')
 toilet16.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet17 = Toilet.create!(
@@ -221,7 +222,7 @@ toilet17 = Toilet.create!(
   user: blaise
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590742000/toilets/113999600_9753173ac3_o_sdhx0a.jpg')
 toilet17.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet18 = Toilet.create!(
@@ -232,7 +233,7 @@ toilet18 = Toilet.create!(
   user: alexb
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741725/toilets/filios-sazeides-qeIuFR5vPm8-unsplash_rwgsph.jpg')
 toilet18.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet19 = Toilet.create!(
@@ -243,7 +244,7 @@ toilet19 = Toilet.create!(
   user: helene
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741725/toilets/phil-hearing-U7PitHRnTNU-unsplash_ig9ofh.jpg')
 toilet19.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet20 = Toilet.create!(
@@ -254,7 +255,7 @@ toilet20 = Toilet.create!(
   user: alexb
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741725/toilets/gabor-monori-VCVI5QUvFAY-unsplash_q4kpnk.jpg')
 toilet20.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet21 = Toilet.create!(
@@ -265,7 +266,7 @@ toilet21 = Toilet.create!(
   user: blaise
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741725/toilets/emily-silverstein-xmt2zNMPNh0-unsplash_qskvb9.jpg')
 toilet21.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet22 = Toilet.create!(
@@ -276,7 +277,7 @@ toilet22 = Toilet.create!(
   user: helene
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741725/toilets/renee-verberne-FuQBKSIc2yM-unsplash_uq3hau.jpg')
 toilet22.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet23 = Toilet.create!(
@@ -287,7 +288,7 @@ toilet23 = Toilet.create!(
   user: alex
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741725/toilets/filios-sazeides-iE48PAkYy0w-unsplash_pcb87i.jpg')
 toilet23.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet24 = Toilet.create!(
@@ -298,7 +299,7 @@ toilet24 = Toilet.create!(
   user: blaise
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741724/toilets/designclass-mYlpbvnCA1o-unsplash_ilfyds.jpg')
 toilet24.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet25 = Toilet.create!(
@@ -309,7 +310,7 @@ toilet25 = Toilet.create!(
   user: helene
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741724/toilets/ingo-hamm-hevMCro8PPY-unsplash_qbhga2.jpg')
 toilet25.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet26 = Toilet.create!(
@@ -320,7 +321,7 @@ toilet26 = Toilet.create!(
   user: blaise
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741723/toilets/curology--CzMaAShQP8-unsplash_szvoji.jpg')
 toilet26.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet27 = Toilet.create!(
@@ -331,7 +332,7 @@ toilet27 = Toilet.create!(
   user: alex
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741723/toilets/francesca-tosolini-FX1EbT-jKBQ-unsplash_lcbb3y.jpg')
 toilet27.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet28 = Toilet.create!(
@@ -342,8 +343,9 @@ toilet28 = Toilet.create!(
   user: alex
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590741723/toilets/99-films-9K-rMgWLCYM-unsplash_yeyqea.jpg')
 toilet28.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 
 toilet29 = Toilet.create!(
   address: "Rue de Morat 4, Fribourg - Freiburg, Fribourg/Freiburg, Switzerland",
@@ -353,7 +355,7 @@ toilet29 = Toilet.create!(
   user: alexb
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590673982/toilets/d6zas5wmhjinux44r2k03roz1fov.jpg')
 toilet29.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet30 = Toilet.create!(
@@ -364,7 +366,7 @@ toilet30 = Toilet.create!(
   user: alexb
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590668166/toilets/1136a2llyl3brqzg8r9crwv5zuwg.jpg')
 toilet30.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 puts "Creating bookings"
