@@ -1,12 +1,9 @@
-"scripts": {
-    "start": "node server.js"
-}
-
 {
   "name": "The_Pooples",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
+    "start": "node server.js",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
