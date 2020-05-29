@@ -43,7 +43,7 @@ before_action :set_toilet, only:[:show, :destroy, :edit, :update]
 
   def update
     @toilet.update(toilet_params)
-    redirect_to toilets_path(@toilet)
+    redirect_to my_toilets_path
   end
 
   def destroy
