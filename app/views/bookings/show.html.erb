@@ -1,5 +1,5 @@
 <div class="container">
-  <% if policy(Booking).create? & @booking.status == "pending"%>
+  <% if policy(@booking).create? && @booking.status == "pending"%>
     <div class="card">
       <div class="card-header">
         <h5 class="card-title"><%= @booking.status %></h5>
@@ -9,8 +9,7 @@
         <%= link_to 'Back to my bookings', bookings_path(@booking.toilet)%>
       </div>
     </div>
-  <% end %>
-  <% if @booking.price == "unpaid" %>
+  <% elsif policy(@booking).update? && @booking.price == "unpaid"%>
       <div class="card">
         <div class="card-header">
           <h5 class="card-title"><%= @booking.status %></h5>
@@ -19,7 +18,7 @@
           <p class="card-text">You have <%= @booking.status %> the booking, <%= link_to "#{@booking.toilet.name}", bookings_path(@booking)%></p>
         </div>
       </div>
-  <% elsif @booking.price == "paid" %>
+  <% elsif policy(@booking).update? && @booking.price == "paid" %>
       <div class="card">
         <div class="card-header">
           <h5 class="card-title">Confirmation of payment</h5>
