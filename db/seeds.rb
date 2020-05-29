@@ -60,7 +60,7 @@ toilet1 = Toilet.create!(
   price: 20,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590748292/toilets/947275270_1988e2e0d3_b_u48b2l.jpg')
 toilet1.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet2 = Toilet.create!(
@@ -70,7 +70,7 @@ toilet2 = Toilet.create!(
   price: 30,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590748417/toilets/amazing-toilet-views-around-the-world-20__880_1_fgiizm.jpg')
 toilet2.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet3 = Toilet.create!(
@@ -80,7 +80,7 @@ toilet3 = Toilet.create!(
   price: 2,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590744178/toilets/20190570570_aa68df2efd_k_tioqgr.jpg')
 toilet3.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet4 = Toilet.create!(
@@ -90,7 +90,7 @@ toilet4 = Toilet.create!(
   price: 15,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590744178/toilets/28554895701_5f58f8041c_c_gruf95.jpg')
 toilet4.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet5 = Toilet.create!(
@@ -100,7 +100,7 @@ toilet5 = Toilet.create!(
   price: 20,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590744177/toilets/8791385977_49e321abd3_c_yef1u8.jpg')
 toilet5.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet6 = Toilet.create!(
@@ -110,7 +110,7 @@ toilet6 = Toilet.create!(
   price: 30,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590744177/toilets/110858488_cc4bccfacd_c_bwl9l7.jpg')
 toilet6.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet7 = Toilet.create!(
@@ -120,7 +120,7 @@ toilet7 = Toilet.create!(
   price: 1,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590743874/toilets/2636152947_7a9b1f1de9_c_mvprke.jpg')
 toilet7.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet8 = Toilet.create!(
@@ -130,7 +130,7 @@ toilet8 = Toilet.create!(
   price: 22,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590743874/toilets/26139244_ec50fbf58f_o_omgxqb.jpg')
 toilet8.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet9 = Toilet.create!(
@@ -140,7 +140,7 @@ toilet9 = Toilet.create!(
   price: 35,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590743873/toilets/2418809248_ea23c16a5f_c_wx87hl.jpg')
 toilet9.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet10 = Toilet.create!(
@@ -150,7 +150,7 @@ toilet10 = Toilet.create!(
   price: 5,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590743874/toilets/6796210437_60529f37b8_o_le8jds.jpg')
 toilet10.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet11 = Toilet.create!(
@@ -160,7 +160,7 @@ toilet11 = Toilet.create!(
   price: 60,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590743873/toilets/2167190849_9f1fc729e9_c_cujsx8.jpg')
 toilet11.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet12 = Toilet.create!(
@@ -170,7 +170,7 @@ toilet12 = Toilet.create!(
   price: 18,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590743873/toilets/14661477850_e23a028188_c_extixb.jpg')
 toilet12.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet13 = Toilet.create!(
@@ -180,7 +180,7 @@ toilet13 = Toilet.create!(
   price: 28,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590742000/toilets/2910194635_35a2e41d40_c_pegrya.jpg')
 toilet13.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet14 = Toilet.create!(
@@ -190,7 +190,7 @@ toilet14 = Toilet.create!(
   price: 7,
   user: helene
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590742000/toilets/19118709_9930d2cf6b_o_zib7wh.jpg')
 toilet14.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet15 = Toilet.create!(
@@ -200,7 +200,7 @@ toilet15 = Toilet.create!(
   price: 41,
   user: alex
 )
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://res.cloudinary.com/blaisepop/image/upload/v1590742000/toilets/21480953106_56d4b3bd2a_c_hczfmz.jpg')
 toilet15.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 toilet16 = Toilet.create!(
