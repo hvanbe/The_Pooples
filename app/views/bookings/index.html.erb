@@ -11,13 +11,21 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <h2>My bookings</h2>
       <% if @bookings.empty? %>
-        You haven't made any bookings
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1545693315-85b6be26a3d6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9);" >
+          <div class="container">
+            <h1>You do not have any bookings</h1>
+            <button type="button" class="btn btn-light mt-3 mb-3"><%= link_to "Book now", toilets_path %></button>
+          </div>
+          </div>
       <% else %>
+      <div class="row">
         <% @bookings.each do |booking| %>
+        <div class="col">
           <div class="card">
             <h3 class="card-title"><%= booking.toilet.name %></h3>
               <p class="card-text"><%= booking.toilet.address %></p>
-              <img class="card-img" src="https://cdn.bigbathroomshop.co.uk/media/catalog/product/cache/ff73992cf668642d4cde13a1ab7ced86/d/o/docmoo1_ls_1_new_1000.jpg" alt="Card image">
+              <img src="<%= cl_image_path(booking.toilet.photo.key,:width=>400, :height=>260 , :crop=>"fill",:gravity=>"auto") %>">
+
             <% if booking.status == "pending" %>
               <p class="card-text"> <strong>Status</strong><br> <%= booking.status %></p>
             <% elsif booking.status == "approved" %>
@@ -47,11 +55,21 @@
               <%= link_to "Pay now #{((booking.toilet.price/100)*((booking.exit_time - booking.entry_time)/60)).to_i} CHF", booking_path(booking, "booking[price]" => "paid"), method: :patch, class: "btn btn-primary" %>
             <% end %>
           </div>
+          </div>
         <% end %>
       <% end %>
+      </div>
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <h2>My toilets</h2>
+      <% if @my_toilets_bookings.empty?%>
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1545693315-85b6be26a3d6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9);" >
+          <div class="container">
+            <h1>You currently have no toilets</h1>
+            <button type="button" class="btn btn-light mt-3 mb-3"><%= link_to "Submit my toilets", new_toilet_path %></button>
+          </div>
+          </div>
+      <% else %>
       <% @my_toilets_bookings.each do |booking| %>
         <div class="card">
           <h3 class="card-title"><%= booking.toilet.name %></h3>
@@ -80,5 +98,6 @@
         </div>
       <% end %>
     </div>
+    <% end %>
   </div>
 </div>
