@@ -40,7 +40,7 @@
             <% if booking.status == "approved" %>
               <% if booking.price == "unpaid" %>
                 <p class="font-italic">To confirm your booking, please proceed to the payment</p>
-                <%= link_to "Pay now #{booking.toilet.price} cents/minute", booking_path(booking, "booking[price]" => "paid"), method: :patch, class: "btn btn-primary" %>
+                <%= link_to "Pay now #{((booking.toilet.price/100)*((booking.exit_time - booking.entry_time)/60)).to_i} cents/minute", booking_path(booking, "booking[price]" => "paid"), method: :patch, class: "btn btn-primary" %>
               <% end %>
             <% end %>
 
