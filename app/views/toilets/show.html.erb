@@ -17,7 +17,7 @@
     <div class="container">
     <h1><%=@toilet.name.capitalize %></h1>
       <p><%=@toilet.description %></p>
-      <p><%=@toilet.price*15%>.- for 15mn</p>
+      <p><%=@toilet.price*15/100>.- for 15mn</p>
       <div class="card p-3 mt-3 mb-3">
         <%= simple_form_for [@toilet, @booking] do |f| %>
           <%= f.input :entry_time, as: :string, required: true, input_html: {class: "datepicker"} %>
