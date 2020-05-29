@@ -20,7 +20,7 @@
       <% else %>
       <div class="row">
         <% @bookings.each do |booking| %>
-        <div class="col">
+        <div class="col-6">
           <div class="card">
             <h3 class="card-title"><%= booking.toilet.name %></h3>
               <p class="card-text"><%= booking.toilet.address %></p>
@@ -65,12 +65,13 @@
       <% if @my_toilets_bookings.empty?%>
       <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1545693315-85b6be26a3d6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9);" >
           <div class="container">
-            <h1>You currently have no toilets</h1>
-            <button type="button" class="btn btn-light mt-3 mb-3"><%= link_to "Submit my toilets", new_toilet_path %></button>
+            <h1>Your toilets haven't been booked yet, patience!</h1>
           </div>
           </div>
       <% else %>
+      <div class="row">
       <% @my_toilets_bookings.each do |booking| %>
+      <div class="col-6">
         <div class="card">
           <h3 class="card-title"><%= booking.toilet.name %></h3>
             <p class="card-text"><%= booking.toilet.address %></p>
@@ -96,7 +97,9 @@
             </p>
           <% end %>
         </div>
+        </div>
       <% end %>
+      </div>
     </div>
     <% end %>
   </div>
