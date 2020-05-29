@@ -18,13 +18,7 @@
     <h1><%=@toilet.name.capitalize %></h1>
       <p><%=@toilet.description %></p>
 
-      <p><%=@toilet.price*15/100>.- for 15mn</p>
-      <div class="card p-3 mt-3 mb-3">
-      <button type="button" class="btn btn-outline-primary mt-3 mb-3"><%= link_to "Book now!", toilet_path(@toilet, anchor: "book_card")%></button>
-
-      <% end %>
-    </div>
-
+      <p><%=@toilet.price*15/100%>.- for 15mn</p>
 </div>
 <div class="card p-3 mt-3 mb-3" id=book_card>
 
@@ -34,6 +28,7 @@
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
   </div>
+      <% end %>
 </div>
 
 
