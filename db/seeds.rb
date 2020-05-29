@@ -160,9 +160,9 @@ toilet25 = Toilet.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-toilet26.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+toilet25.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-toilet27 = Toilet.create!(
+toilet26 = Toilet.create!(
   address: "Rue de Clodevis 14, Sion, Valais/Wallis, Switzerland",
   name: "Japanese toilet",
   description: "Self-cleaning toilet",
@@ -171,9 +171,9 @@ toilet27 = Toilet.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-toilet27.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+toilet26.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-toilet28 = Toilet.create!(
+toilet27 = Toilet.create!(
   address: "Rue du Grand-Chêne 20, Lausanne, Vaud, Switzerland",
   name: "Long Drop",
   description: "Peace and quiet for a delightful private moment",
@@ -182,9 +182,9 @@ toilet28 = Toilet.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-toilet28.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+toilet27.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-toilet29 = Toilet.create!(
+toilet28 = Toilet.create!(
   address: "Rue de Chamblon 10, Yverdon-les-Bains, Vaud, Switzerland",
   name: "Thunder Box",
   description: "Unique experience, travel with Thunder Box",
@@ -193,9 +193,9 @@ toilet29 = Toilet.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-toilet29.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+toilet28.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-toilet30 = Toilet.create!(
+toilet29 = Toilet.create!(
   address: "Rue de Morat 4, Fribourg - Freiburg, Fribourg/Freiburg, Switzerland",
   name: "The Office",
   description: "Don't loose time, work and do!",
@@ -204,9 +204,9 @@ toilet30 = Toilet.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-toilet30.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+toilet29.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-toilet31 = Toilet.create!(
+toilet30 = Toilet.create!(
   address: "Rue de la Blancherie 3, Sion, Valais/Wallis, Switzerland",
   name: "Comfort Station",
   description: "Cushion seat, come and sit for hours",
@@ -215,7 +215,7 @@ toilet31 = Toilet.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-toilet31.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+toilet30.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 puts "Creating bookings"
 booking = Booking.create!(
